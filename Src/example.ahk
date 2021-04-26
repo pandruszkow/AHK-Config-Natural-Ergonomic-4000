@@ -7,31 +7,17 @@ SendMode Input ; Recommended for new scripts due to its superior speed and relia
 
 return ; nothing to do in the main part of the script
 
+; Works best with scrolling set to 3-4 lines at a time. Smooth scroll makes the screen a bit blurry.
+
 ; === Use the zoom button to scroll ===
-DoScroll:
-    if (ScrollDir = 1)
-        SendInput, {WheelUp}
-    else
-        SendInput, {WheelDown}
-    return
 
 MsNatural4000_ZoomDown:
-    ScrollDir := 2
-    GoSub, DoScroll
-    SetTimer, DoScroll, 80
+    SendInput, {WheelDown}
     return
 
 MsNatural4000_ZoomUp:
-    ScrollDir := 1
-    GoSub, DoScroll
-    SetTimer, DoScroll, 80
+    SendInput, {WheelUp}
     return
-
-MsNatural4000_KeyUp:
-    ScrollDir := 0
-    SetTimer, DoScroll, Off
-    return
-; ======
 
 ; === Example of using modifiers while pressing a button ===
 MsNatural4000_MyFavorites:
